@@ -1,15 +1,20 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using HelloWorldApp;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using NUnit.Framework;
 
 namespace HelloWorldApp.Tests
 {
-    [TestClass()]
-    public class MathOperationsTests
+    public class Tests
     {
-        [TestMethod()]
+        [SetUp]
+        public void Setup()
+        {
+        }
+
+        [Test]
+        public void Test1()
+        {
+            Assert.Pass();
+        }
+        [Test()]
         public void AddTest()
         {
             MathOperations bm = new MathOperations();
@@ -17,7 +22,7 @@ namespace HelloWorldApp.Tests
             Assert.AreEqual(res, 20);
         }
 
-        [TestMethod()]
+        [Test()]
         public void SubtractTest()
         {
             MathOperations bm = new MathOperations();
@@ -25,7 +30,7 @@ namespace HelloWorldApp.Tests
             Assert.AreEqual(res, 0);
         }
 
-        [TestMethod()]
+        [Test()]
         public void DivideTest()
         {
             MathOperations bm = new MathOperations();
@@ -33,7 +38,7 @@ namespace HelloWorldApp.Tests
             Assert.AreEqual(res, 2);
         }
 
-        [TestMethod()]
+        [Test()]
         public void MultiplyTest()
         {
             MathOperations bm = new MathOperations();
@@ -41,22 +46,15 @@ namespace HelloWorldApp.Tests
             Assert.AreEqual(res, 50);
         }
 
-        [DataTestMethod]
-        [DataRow(1, 1, 2)]
-        [DataRow(12, 30, 42)]
-        [DataRow(14, 1, 15)]
+        [TestCase(1, 1, 2)]
+        [TestCase(12, 30, 42)]
+        [TestCase(14, 1, 15)]
         public void Test_AddWithTestCase(int a, int b, int expected)
         {
             MathOperations obj = new MathOperations();
             var actual = obj.Add(a, b);
             Assert.AreEqual(expected, actual);
         }
-    }
-}
 
-namespace HelloWorldAppTests
-{
-    class MathOperationsTests
-    {
     }
 }
