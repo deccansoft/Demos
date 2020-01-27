@@ -35,7 +35,7 @@ steps:
       SonarCloud: 'Sonar Cloud Connection'
       organization: 'sandeep-org'
       scannerMode: 'MSBuild'
-      projectKey: 'sonar.dssdemo'
+      projectKey: 'sonar.gitdemo'
 
   - task: SonarCloudAnalyze@1
 
