@@ -22,9 +22,6 @@ steps:
   - script: dotnet build --configuration $(buildConfiguration)
     displayName: 'dotnet build $(buildConfiguration)'
 
-  - script: dotnet build --configuration $(buildConfiguration)
-    displayName: 'dotnet restore $(buildConfiguration)'
-
   - task: SonarCloudPrepare@1
     inputs:
       SonarCloud: 'Sonar Cloud Connection'
@@ -32,5 +29,8 @@ steps:
       scannerMode: 'MSBuild'
       projectKey: 'sonar.gitdemo'
 
-  - task: SonarCloudAnalyze@1
+  - script: dotnet build --configuration $(buildConfiguration)
+    displayName: 'dotnet restore $(buildConfiguration)'
 
+  - task: SonarCloudAnalyze@1
+    displayName: 'Run Code Analysis'
