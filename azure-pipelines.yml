@@ -30,12 +30,12 @@ steps:
       publishTestResults: true
       projects: '**/*Tests.csproj'
 
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'Sonar Cloud Connection'
-    organization: 'sandeep-org'
-    scannerMode: 'MSBuild'
-    projectKey: 'sonar.dssdemo'
+  - task: SonarCloudPrepare@1
+    inputs:
+      SonarCloud: 'Sonar Cloud Connection'
+      organization: 'sandeep-org'
+      scannerMode: 'MSBuild'
+      projectKey: 'sonar.dssdemo'
 
-- task: SonarCloudAnalyze@1
+  - task: SonarCloudAnalyze@1
 
