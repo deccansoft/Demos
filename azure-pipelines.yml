@@ -22,15 +22,6 @@ steps:
   - script: dotnet build --configuration $(buildConfiguration)
     displayName: 'dotnet restore $(buildConfiguration)'
 
-  - task: SonarCloudPrepare@1
-    inputs:
-      SonarCloud: 'Sonar Cloud Connection'
-      organization: 'sandeep-org'
-      scannerMode: 'MSBuild'
-      projectKey: 'sonar.gitdemo'
-
-  - script: dotnet build --configuration $(buildConfiguration)
-    displayName: 'dotnet build $(buildConfiguration)'
-
-  - task: SonarCloudAnalyze@1
-    displayName: 'Run Code Analysis'
+  - task: WhiteSource Bolt@20
+    displayName: 'Run WhiteSource Bolt' 
+    
